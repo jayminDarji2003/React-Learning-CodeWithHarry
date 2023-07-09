@@ -6,7 +6,7 @@ function App() {
   return (
     <>
       {/* /* Navbar component  */}
-      <Navbar title="textUtilsCode" aboutText="About us" />
+      <Navbar title="TextUtils" aboutText="About US" />
     </>
   );
 }
