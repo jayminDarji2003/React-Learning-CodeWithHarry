@@ -5,26 +5,49 @@ export default function TextForm(props) {
   const [text, setText] = useState("");
 
   const convertUppercase = () => {
-    // console.log("Uppercase button clicked");
     let newTextUpp = text.toUpperCase();
     setText(newTextUpp);
   };
 
   const convertLowerCase = () => {
-    // console.log("Lowercase button clicked");
     let newTextLow = text.toLowerCase();
     setText(newTextLow);
   };
 
+  const speak = () => {
+    let msg = new SpeechSynthesisUtterance();
+    msg.text = text;
+    window.speechSynthesis.speak(msg);
+  };
+
+  function convertCapitalCase() {
+    let arr = text.split(" ");
+    let c = arr.length;
+    let temp = "";
+    while (c !== 0) {
+      temp =
+        arr[c - 1].charAt(0).toUpperCase() +
+        arr[c - 1].substring(1).toLowerCase() +
+        " " +
+        temp;
+      c--;
+    }
+    setText(temp);
+  }
+
+  const clearText = () => {
+    let newTextLow = "";
+    setText(newTextLow);
+  };
+
   const changeInValue = (event) => {
-    // console.log("change");
     setText(event.target.value);
   };
 
   return (
     <>
       <div>
-        <h2 className="mt-4">{props.heading}</h2>
+        <h2 className="mt-4 fw-bold">{props.heading}</h2>
         <div className="mb-3 mt-3">
           {/* <label htmlFor="myTextBox" className="form-label mb-3">
           Enter your Text
@@ -40,29 +63,60 @@ export default function TextForm(props) {
         </div>
       </div>
 
-      <div className="container d-flex justify-content-center align-items-center mt-5 row gap-3">
+      {/* Operation buttons  */}
+
+      <div className="title my-4">
+        <h3 className="text-center fw-bold ">Perform Operations</h3>
+      </div>
+      <div className="container d-flex justify-content-center align-items-center my-4 row gap-3">
         <button
           type="button"
           className="btn btn-primary w-auto "
           onClick={convertUppercase}
         >
-          Convert to UpperCase
+          UpperCase
         </button>
         <button
           type="button"
           className="btn btn-primary w-auto"
           onClick={convertLowerCase}
         >
-          Convert to LowerCase
+          LowerCase
+        </button>
+        <button
+          type="button"
+          className="btn btn-primary w-auto"
+          onClick={convertCapitalCase}
+        >
+          CapitalCase
+        </button>
+        <button
+          type="button"
+          className="btn btn-primary w-auto"
+          onClick={speak}
+        >
+          Speak Text
+        </button>
+        <button
+          type="button"
+          className="btn btn-primary w-auto w-auto"
+          onClick={clearText}
+        >
+          Clear
         </button>
       </div>
 
-      <div className="container my-3">
-        <h3>Your Text Summary</h3>
-        <p>{text.split(" ").length} words and {text.length} characters</p>
-        <p>{0.008 * text.split(" ").length} Minutes to Read</p>
-        <h3>Preview</h3>
-        <p>{text}</p>
+      <hr />
+
+      {/* section three  */}
+      <div className="container my-4">
+        <div>
+          <h3 className="text-center fw-bold">Your Text Summary</h3>
+          <p  className="text-center">
+            {text.split(" ").length} words and {text.length} characters
+          </p>
+          <p  className="text-center">{0.008 * text.split(" ").length} Minutes to Read</p>
+        </div>
       </div>
     </>
   );
