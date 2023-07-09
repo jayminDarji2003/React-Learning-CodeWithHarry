@@ -64,7 +64,7 @@ export default function TextForm(props) {
   return (
     <>
       <div>
-        <h2 className="mt-4 fw-bold">{props.heading}</h2>
+        <h2 className={`mt-4 fw-bold text-${props.mode === 'dark' ? 'light' : 'dark'}`}>{props.heading}</h2>
         <div className="mb-3 mt-3">
           {/* <label htmlFor="myTextBox" className="form-label mb-3">
           Enter your Text
@@ -82,7 +82,7 @@ export default function TextForm(props) {
 
       {/* Operation buttons  */}
 
-      <div className="title my-4">
+      <div className={`title my-4 text-${props.mode === 'dark' ? 'light' : 'dark'}`}>
         <h3 className="text-center fw-bold ">Perform Operations</h3>
       </div>
       <div className="container d-flex justify-content-center align-items-center my-4 row gap-3">
@@ -126,7 +126,7 @@ export default function TextForm(props) {
           className="btn btn-primary w-auto"
           onClick={reverseText}
         >
-          Reverse
+          Reverse Text
         </button>
         <button
           type="button"
@@ -140,14 +140,14 @@ export default function TextForm(props) {
           className="btn btn-primary w-auto w-auto"
           onClick={clearText}
         >
-          Clear
+          Clear Text
         </button>
       </div>
 
       <hr />
 
       {/* section three  */}
-      <div className="container my-4">
+      <div className={`container my-4 text-${props.mode === 'dark' ? 'light' : 'dark'}`}>
         <div>
           <h3 className="text-center fw-bold">Your Text Summary</h3>
           <p className="text-center">

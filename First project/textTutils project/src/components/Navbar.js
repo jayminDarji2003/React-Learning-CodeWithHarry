@@ -1,9 +1,11 @@
 import React from "react";
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 
 export default function Navbar(props) {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-secondary">
+    <nav
+      className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
+    >
       <div className="container-fluid">
         <a className="navbar-brand text-primary fw-bold" href="/">
           {props.title}
@@ -27,12 +29,12 @@ export default function Navbar(props) {
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <a className="nav-link active" href="/">
                 {props.aboutText}
               </a>
             </li>
           </ul>
-          <form className="d-flex" role="search">
+          {/* <form className="d-flex" role="search">
             <input
               className="form-control me-2"
               type="search"
@@ -42,20 +44,31 @@ export default function Navbar(props) {
             <button className="btn btn-outline-primary" type="submit">
               Search
             </button>
-          </form>
+          </form> */}
+
+          <div className={`form-check form-switch text-${props.mode === 'dark' ? 'light' : 'dark'}`}>
+            <input
+              className="form-check-input"
+              type="checkbox"
+              role="switch"
+              id="flexSwitchCheckChecked"
+              onClick={props.toggleMode}
+            />
+            <label
+              className="form-check-label"
+              htmlFor="flexSwitchCheckChecked"
+            >
+              Dark Mode
+            </label>
+          </div>
         </div>
       </div>
     </nav>
   );
 }
 
- 
 Navbar.propTypes = {
-    title : PropTypes.string,
-    aboutText : PropTypes.string
-};
-
-Navbar.propTypes = {
-  title : PropTypes.string,
   title: PropTypes.string,
-}
+  aboutText: PropTypes.string,
+  toggleMode:PropTypes.string
+};
