@@ -35,6 +35,23 @@ export default function TextForm(props) {
     setText(temp);
   }
 
+  const handleCopy = () => {
+    // console.log("copy done");
+    // let text = document.getElementById("myTextBox");
+    // navigator.clipboard.writeText(text.value);
+    // text.select(); // It is select the text
+  };
+
+  const handleExtraSpaces = () => {
+    let newText = text.replace(/\s+/g, " ").trim();
+    setText(newText);
+  };
+
+  const reverseText = () => {
+    let newText = text.split("").reverse().join("");
+    setText(newText);
+  };
+
   const clearText = () => {
     let newTextLow = "";
     setText(newTextLow);
@@ -99,6 +116,27 @@ export default function TextForm(props) {
         </button>
         <button
           type="button"
+          className="btn btn-primary w-auto"
+          onClick={handleCopy}
+        >
+          Copy Text
+        </button>
+        <button
+          type="button"
+          className="btn btn-primary w-auto"
+          onClick={reverseText}
+        >
+          Reverse
+        </button>
+        <button
+          type="button"
+          className="btn btn-primary w-auto"
+          onClick={handleExtraSpaces}
+        >
+          Remove Space
+        </button>
+        <button
+          type="button"
           className="btn btn-primary w-auto w-auto"
           onClick={clearText}
         >
@@ -112,10 +150,12 @@ export default function TextForm(props) {
       <div className="container my-4">
         <div>
           <h3 className="text-center fw-bold">Your Text Summary</h3>
-          <p  className="text-center">
+          <p className="text-center">
             {text.split(" ").length} words and {text.length} characters
           </p>
-          <p  className="text-center">{0.008 * text.split(" ").length} Minutes to Read</p>
+          <p className="text-center">
+            {0.008 * text.split(" ").length} Minutes to Read
+          </p>
         </div>
       </div>
     </>
