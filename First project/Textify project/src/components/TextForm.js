@@ -7,17 +7,20 @@ export default function TextForm(props) {
   const convertUppercase = () => {
     let newTextUpp = text.toUpperCase();
     setText(newTextUpp);
+    props.showAlert("Converted to Uppercase", "Successful");
   };
 
   const convertLowerCase = () => {
     let newTextLow = text.toLowerCase();
     setText(newTextLow);
+    props.showAlert("Converted to Lowercase", "Successful");
   };
 
   const speak = () => {
     let msg = new SpeechSynthesisUtterance();
     msg.text = text;
     window.speechSynthesis.speak(msg);
+    props.showAlert("Text speaking", "Successful");
   };
 
   function convertCapitalCase() {
@@ -33,28 +36,33 @@ export default function TextForm(props) {
       c--;
     }
     setText(temp);
+    props.showAlert("Converted to Capitalcase", "Successful");
   }
 
   const handleCopy = () => {
-    // console.log("copy done");
     // let text = document.getElementById("myTextBox");
+    // text.select();
+    // text.setSelectionRange(0,9999);
     // navigator.clipboard.writeText(text.value);
-    // text.select(); // It is select the text
+    // props.showAlert("Copy to Clipboard", "Successful");
   };
 
   const handleExtraSpaces = () => {
     let newText = text.replace(/\s+/g, " ").trim();
     setText(newText);
+    props.showAlert("Removed Extra Spaces", "Successful");
   };
 
   const reverseText = () => {
     let newText = text.split("").reverse().join("");
     setText(newText);
+    props.showAlert("Reversed Text", "Successful");
   };
 
   const clearText = () => {
     let newTextLow = "";
     setText(newTextLow);
+    props.showAlert("Cleared Text", "Successful");
   };
 
   const changeInValue = (event) => {
@@ -151,7 +159,7 @@ export default function TextForm(props) {
         <div>
           <h3 className="text-center fw-bold">Your Text Summary</h3>
           <p className="text-center">
-            {text.split(" ").length} words and {text.length} characters
+            {text == "" ? 0: text.split(" ").length-1} words and {text.length} characters
           </p>
           <p className="text-center">
             {0.008 * text.split(" ").length} Minutes to Read

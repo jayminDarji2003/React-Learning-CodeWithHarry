@@ -4,18 +4,35 @@ import "./App.css";
 import About from "./components/About";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
+import Alert from "./components/Alert";
 
 function App() {
-  // It shows dark mode is enabled or not
+  // darm mode state
   const [mode, setMode] = useState('light');
+
+  // alert state
+  const [alert, setAlert] = useState(null); 
+
+  const showAlert = (message, type) =>{
+    setAlert({
+      msg : message,
+      type : type
+    })
+
+    setTimeout(() => {
+      setAlert(null);
+    }, 1000);
+  }
 
   const toggleMode = () =>{
     if(mode === 'light'){
       setMode('dark');
       document.body.style.backgroundColor = '#212529';
+      showAlert("Dark Mode has been enabled" , "Successful");
     }else{
       setMode('light')
       document.body.style.backgroundColor = 'white';
+      showAlert("Light Mode has been enabled" , "Successful");
     }
   }
 
@@ -23,8 +40,10 @@ function App() {
     <>
       <Navbar title="Textify" aboutText="About US" mode={mode} toggleMode={toggleMode} />
 
+      <Alert alert={alert}/>
+
       <div className="container">
-        <TextForm heading="Play With Your Text" mode={mode} />
+        <TextForm showAlert={showAlert} heading="Play With Your Text"  mode={mode} />
       </div>
 
       {/* <About/> */}

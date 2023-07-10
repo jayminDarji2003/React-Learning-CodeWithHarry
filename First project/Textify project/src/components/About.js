@@ -1,40 +1,32 @@
-// rfc --> shortcut to get React function component
 import React, { useState } from "react";
 
-export default function About() {
-  const [myStyle, setMyStyle] = useState({
-    color: "black",
-    backgroundColor: "white",
-  });
+function About() {
+  // const [colorMode, setColorMode] = useState("light");
 
-  const [btnTxt, setBtnTxt] = useState("Enable Dark Mode");
-
-  const toggleStyle = () => {
-    if (myStyle.color == "white") {
-      setMyStyle({
-        color: "black",
-        backgroundColor: "white",
-      });
-      setBtnTxt("Enable Light Mode");
-    } else {
-      setMyStyle({
-        color: "white",
-        backgroundColor: "black",
-      });
-      setBtnTxt("Enable Dark Mode");
-    }
+  const changeToDark = () => {
+    document.body.style.backgroundColor = '#6C757D';
+  };
+  const changeToWhite = () => {
+    document.body.style.backgroundColor = '#fff';
+  };
+  const changeToBlue = () => {
+    document.body.style.backgroundColor = '#0D6EFD';
+  };
+  const changeToGreen = () => {
+    document.body.style.backgroundColor = '#1A814C';
+  };
+  const changeToRed = () => {
+    document.body.style.backgroundColor = '#DC3545';
   };
 
   return (
-    <div className="container" style={myStyle}>
-      <h3 className="my-4">About US</h3>
-      <div className="accordion style={myStyle}" id="accordionExample">
+    <div>
+      <div className="accordion container my-5" id="accordionExample">
         <div className="accordion-item">
           <h2 className="accordion-header">
             <button
-              className="accordion-button "
+              className="accordion-button"
               type="button"
-              style={myStyle}
               data-bs-toggle="collapse"
               data-bs-target="#collapseOne"
               aria-expanded="true"
@@ -48,15 +40,11 @@ export default function About() {
             className="accordion-collapse collapse show"
             data-bs-parent="#accordionExample"
           >
-            <div className="accordion-body " style={myStyle}>
+            <div className="accordion-body">
               <strong>This is the first item's accordion body.</strong> It is
               shown by default, until the collapse plugin adds the appropriate
-              classNamees that we use to style each element. These classNamees
-              control the overall appearance, as well as the showing and hiding
-              via CSS transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              classes that we use to style each element. These classes control
+              the overall appearance,
             </div>
           </div>
         </div>
@@ -65,7 +53,6 @@ export default function About() {
             <button
               className="accordion-button collapsed"
               type="button"
-              style={myStyle}
               data-bs-toggle="collapse"
               data-bs-target="#collapseTwo"
               aria-expanded="false"
@@ -79,15 +66,10 @@ export default function About() {
             className="accordion-collapse collapse"
             data-bs-parent="#accordionExample"
           >
-            <div className="accordion-body" style={myStyle}>
+            <div className="accordion-body">
               <strong>This is the second item's accordion body.</strong> It is
               hidden by default, until the collapse plugin adds the appropriate
-              classNamees that we use to style each element. These classNamees
-              control the overall appearance, as well as the showing and hiding
-              via CSS transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+              classes that we use to style each element
             </div>
           </div>
         </div>
@@ -96,7 +78,6 @@ export default function About() {
             <button
               className="accordion-button collapsed"
               type="button"
-              style={myStyle}
               data-bs-toggle="collapse"
               data-bs-target="#collapseThree"
               aria-expanded="false"
@@ -110,25 +91,82 @@ export default function About() {
             className="accordion-collapse collapse"
             data-bs-parent="#accordionExample"
           >
-            <div className="accordion-body" style={myStyle}>
-              <strong>This is the third item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classNamees that we use to style each element. These classNamees
-              control the overall appearance, as well as the showing and hiding
-              via CSS transitions. You can modify any of this with custom CSS or
-              overriding our default variables. It's also worth noting that just
-              about any HTML can go within the <code>.accordion-body</code>,
-              though the transition does limit overflow.
+            <div className="accordion-body">
+              This is the third item's accordion body.It is hidden by default,
+              until the collapse plugin adds the appropriate classes that we use
+              to style each element. by default, until the collapse plugin adds
+              the appropriate classes that we use to style each element.
             </div>
           </div>
         </div>
       </div>
 
-      <div className="container">
-        <button className="btn btn-primary my-5" onClick={toggleStyle}>
-          {btnTxt}
-        </button>
+      <div className="titleColor my-5">
+        <h2 className="text-center">Choose Background Mode</h2>
+      </div>
+
+      <div className="container d-flex justify-content-center gap-3 bg-black p-4 w-auto mx-2">
+        <input
+          type="radio"
+          class="btn-check"
+          name="options-outlined"
+          id="dark"
+          autocomplete="off"
+        />
+        <label class="btn btn-outline-secondary" onClick={changeToDark} for="dark">
+          Dark
+        </label>
+
+        <input
+          type="radio"
+          class="btn-check text-secondary-emphasis"
+          name="options-outlined"
+          id="light"
+          autocomplete="off"
+          // checked
+        />
+        <label
+          class="btn btn-outline-light border-1 border-secondary" onClick={changeToWhite}
+          for="light"
+        >
+          Light
+        </label>
+
+        <input
+          type="radio"
+          class="btn-check"
+          name="options-outlined"
+          id="blue"
+          autocomplete="off"
+        />
+        <label class="btn btn-outline-primary" onClick={changeToBlue} for="blue">
+          Blue
+        </label>
+
+        <input
+          type="radio"
+          class="btn-check"
+          name="options-outlined"
+          id="green"
+          autocomplete="off"
+        />
+        <label class="btn btn-outline-success" onClick={changeToGreen} for="green">
+          Green
+        </label>
+
+        <input
+          type="radio"
+          class="btn-check"
+          name="options-outlined"
+          id="red"
+          autocomplete="off"
+        />
+        <label class="btn btn-outline-danger" onClick={changeToRed} for="red">
+          Red
+        </label>
       </div>
     </div>
   );
 }
+
+export default About;
