@@ -4,19 +4,19 @@ function About() {
   // const [colorMode, setColorMode] = useState("light");
 
   const changeToDark = () => {
-    document.body.style.backgroundColor = '#6C757D';
+    document.body.style.backgroundColor = "#6C757D";
   };
   const changeToWhite = () => {
-    document.body.style.backgroundColor = '#fff';
+    document.body.style.backgroundColor = "#fff";
   };
   const changeToBlue = () => {
-    document.body.style.backgroundColor = '#0D6EFD';
+    document.body.style.backgroundColor = "#0D6EFD";
   };
   const changeToGreen = () => {
-    document.body.style.backgroundColor = '#1A814C';
+    document.body.style.backgroundColor = "#1A814C";
   };
   const changeToRed = () => {
-    document.body.style.backgroundColor = '#DC3545';
+    document.body.style.backgroundColor = "#DC3545";
   };
 
   return (
@@ -32,7 +32,7 @@ function About() {
               aria-expanded="true"
               aria-controls="collapseOne"
             >
-              Accordion Item #1
+              Welcome
             </button>
           </h2>
           <div
@@ -41,10 +41,11 @@ function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body">
-              <strong>This is the first item's accordion body.</strong> It is
-              shown by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element. These classes control
-              the overall appearance,
+              Welcome to our text manipulation website! We are dedicated to
+              providing you with a wide range of operations to help you
+              transform and manipulate your text effortlessly. Whether you need
+              to convert text to uppercase, lowercase, or explore various other
+              text transformations, we've got you covered.
             </div>
           </div>
         </div>
@@ -58,7 +59,7 @@ function About() {
               aria-expanded="false"
               aria-controls="collapseTwo"
             >
-              Accordion Item #2
+              Features
             </button>
           </h2>
           <div
@@ -67,9 +68,13 @@ function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body">
-              <strong>This is the second item's accordion body.</strong> It is
-              hidden by default, until the collapse plugin adds the appropriate
-              classes that we use to style each element
+              At our website, we understand the power of words and the impact
+              they can have. Sometimes, a simple change in text case can make
+              all the difference in conveying the right tone or emphasizing a
+              specific point. With our easy-to-use tools, you can effortlessly
+              convert your text to uppercase, giving it a bold and assertive
+              appearance. Alternatively, you can convert it to lowercase,
+              providing a softer and more relaxed feel. The choice is yours!
             </div>
           </div>
         </div>
@@ -83,7 +88,7 @@ function About() {
               aria-expanded="false"
               aria-controls="collapseThree"
             >
-              Accordion Item #3
+              Our Mission
             </button>
           </h2>
           <div
@@ -92,10 +97,11 @@ function About() {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body">
-              This is the third item's accordion body.It is hidden by default,
-              until the collapse plugin adds the appropriate classes that we use
-              to style each element. by default, until the collapse plugin adds
-              the appropriate classes that we use to style each element.
+              Our website's mission is to empower individuals with easy-to-use
+              text manipulation tools that enhance their creative expression and
+              communication. We believe that words have immense power and that
+              everyone should have access to tools that allow them to transform
+              and manipulate text effortlessly.
             </div>
           </div>
         </div>
@@ -105,7 +111,7 @@ function About() {
         <h2 className="text-center">Choose Background Mode</h2>
       </div>
 
-      <div className="container d-flex justify-content-center gap-3 bg-black p-4 w-auto mx-2">
+      <div className="container w-auto bg-black d-flex justify-content-center gap-3 p-4">
         <input
           type="radio"
           class="btn-check"
@@ -113,7 +119,11 @@ function About() {
           id="dark"
           autocomplete="off"
         />
-        <label class="btn btn-outline-secondary" onClick={changeToDark} for="dark">
+        <label
+          class="btn btn-outline-secondary"
+          onClick={changeToDark}
+          for="dark"
+        >
           Dark
         </label>
 
@@ -126,7 +136,8 @@ function About() {
           // checked
         />
         <label
-          class="btn btn-outline-light border-1 border-secondary" onClick={changeToWhite}
+          class="btn btn-outline-light border-1 border-secondary"
+          onClick={changeToWhite}
           for="light"
         >
           Light
@@ -139,7 +150,11 @@ function About() {
           id="blue"
           autocomplete="off"
         />
-        <label class="btn btn-outline-primary" onClick={changeToBlue} for="blue">
+        <label
+          class="btn btn-outline-primary"
+          onClick={changeToBlue}
+          for="blue"
+        >
           Blue
         </label>
 
@@ -150,7 +165,11 @@ function About() {
           id="green"
           autocomplete="off"
         />
-        <label class="btn btn-outline-success" onClick={changeToGreen} for="green">
+        <label
+          class="btn btn-outline-success"
+          onClick={changeToGreen}
+          for="green"
+        >
           Green
         </label>
 
