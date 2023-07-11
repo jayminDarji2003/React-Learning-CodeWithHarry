@@ -1,8 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 
 function About() {
-  // const [colorMode, setColorMode] = useState("light");
-
   const changeToDark = () => {
     document.body.style.backgroundColor = "#6C757D";
   };

@@ -46,6 +46,11 @@ export default function TextForm(props) {
     // navigator.clipboard.writeText(text.value);
     // props.showAlert("Copy to Clipboard", "Successful");
   };
+  const CopyTo = ()=>{
+    // var text = document.getElementById("myTextBox");
+    // navigator.clipboard.writeText(text.value);
+    // props.showAlert("Copied to ClipBoard ","success")
+ }
 
   const handleExtraSpaces = () => {
     let newText = text.replace(/\s+/g, " ").trim();
@@ -98,6 +103,7 @@ export default function TextForm(props) {
           type="button"
           className="btn btn-primary w-auto "
           onClick={convertUppercase}
+          disabled={text.length === 0}
         >
           UpperCase
         </button>
@@ -105,6 +111,7 @@ export default function TextForm(props) {
           type="button"
           className="btn btn-primary w-auto"
           onClick={convertLowerCase}
+          disabled={text.length === 0}
         >
           LowerCase
         </button>
@@ -112,6 +119,7 @@ export default function TextForm(props) {
           type="button"
           className="btn btn-primary w-auto"
           onClick={convertCapitalCase}
+          disabled={text.length === 0}
         >
           CapitalCase
         </button>
@@ -119,13 +127,16 @@ export default function TextForm(props) {
           type="button"
           className="btn btn-primary w-auto"
           onClick={speak}
+          disabled={text.length === 0}
         >
           Speak Text
         </button>
         <button
           type="button"
           className="btn btn-primary w-auto"
-          onClick={handleCopy}
+          // onClick={handleCopy}
+          onClick={CopyTo}
+          disabled={text.length === 0}
         >
           Copy Text
         </button>
@@ -133,6 +144,7 @@ export default function TextForm(props) {
           type="button"
           className="btn btn-primary w-auto"
           onClick={reverseText}
+          disabled={text.length === 0}
         >
           Reverse Text
         </button>
@@ -140,6 +152,7 @@ export default function TextForm(props) {
           type="button"
           className="btn btn-primary w-auto"
           onClick={handleExtraSpaces}
+          disabled={text.length === 0}
         >
           Remove Space
         </button>
@@ -147,6 +160,7 @@ export default function TextForm(props) {
           type="button"
           className="btn btn-primary w-auto w-auto"
           onClick={clearText}
+          disabled={text.length === 0}
         >
           Clear Text
         </button>
@@ -159,7 +173,7 @@ export default function TextForm(props) {
         <div>
           <h3 className="text-center fw-bold">Your Text Summary</h3>
           <p className="text-center">
-            {text == "" ? 0: text.split(" ").length-1} words and {text.length} characters
+            {text === "" ? 0: text.split(" ").length-1} words and {text.length} characters
           </p>
           <p className="text-center">
             {0.008 * text.split(" ").length} Minutes to Read

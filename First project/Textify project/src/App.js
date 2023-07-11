@@ -1,4 +1,3 @@
-// import logo from "./logo.svg";
 import { useState } from "react";
 import "./App.css";
 import About from "./components/About";
@@ -54,6 +53,8 @@ function App() {
           mode={mode}
           toggleMode={toggleMode}
         />
+
+        <Alert alert={alert}/>
 
         <Routes>
           <Route>
