@@ -46,11 +46,7 @@ export default function TextForm(props) {
     // navigator.clipboard.writeText(text.value);
     // props.showAlert("Copy to Clipboard", "Successful");
   };
-  const CopyTo = ()=>{
-    // var text = document.getElementById("myTextBox");
-    // navigator.clipboard.writeText(text.value);
-    // props.showAlert("Copied to ClipBoard ","success")
- }
+ 
 
   const handleExtraSpaces = () => {
     let newText = text.replace(/\s+/g, " ").trim();
@@ -134,8 +130,7 @@ export default function TextForm(props) {
         <button
           type="button"
           className="btn btn-primary w-auto"
-          // onClick={handleCopy}
-          onClick={CopyTo}
+          onClick={handleCopy}
           disabled={text.length === 0}
         >
           Copy Text
@@ -173,10 +168,10 @@ export default function TextForm(props) {
         <div>
           <h3 className="text-center fw-bold">Your Text Summary</h3>
           <p className="text-center">
-            {text === "" ? 0: text.split(" ").length-1} words and {text.length} characters
+            {text.split(" ").filter((element)=>{return element.length !== 0}).length} words and {text.length} characters
           </p>
           <p className="text-center">
-            {0.008 * text.split(" ").length} Minutes to Read
+            {0.008 * text.split(" ").filter((element)=>{return element.length !== 0}).length} Minutes to Read
           </p>
         </div>
       </div>

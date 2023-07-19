@@ -1,25 +1,9 @@
 import React from "react";
 
-function About() {
-  const changeToDark = () => {
-    document.body.style.backgroundColor = "#6C757D";
-  };
-  const changeToWhite = () => {
-    document.body.style.backgroundColor = "#fff";
-  };
-  const changeToBlue = () => {
-    document.body.style.backgroundColor = "#0D6EFD";
-  };
-  const changeToGreen = () => {
-    document.body.style.backgroundColor = "#1A814C";
-  };
-  const changeToRed = () => {
-    document.body.style.backgroundColor = "#DC3545";
-  };
-
+function About(props) {
   return (
     <div>
-      <div className="accordion container my-5" id="accordionExample">
+      <div className="accordion container my-5"  id="accordionExample">
         <div className="accordion-item">
           <h2 className="accordion-header">
             <button
@@ -30,7 +14,7 @@ function About() {
               aria-expanded="true"
               aria-controls="collapseOne"
             >
-              Welcome
+              <strong>Welcome</strong>
             </button>
           </h2>
           <div
@@ -57,7 +41,7 @@ function About() {
               aria-expanded="false"
               aria-controls="collapseTwo"
             >
-              Features
+              <strong>Features</strong>
             </button>
           </h2>
           <div
@@ -86,7 +70,7 @@ function About() {
               aria-expanded="false"
               aria-controls="collapseThree"
             >
-              Our Mission
+              <strong>Our Mission</strong>
             </button>
           </h2>
           <div
@@ -103,84 +87,6 @@ function About() {
             </div>
           </div>
         </div>
-      </div>
-
-      <div className="titleColor my-5">
-        <h2 className="text-center">Choose Background Mode</h2>
-      </div>
-
-      <div className="container w-auto bg-black d-flex justify-content-center gap-3 p-4">
-        <input
-          type="radio"
-          class="btn-check"
-          name="options-outlined"
-          id="dark"
-          autocomplete="off"
-        />
-        <label
-          class="btn btn-outline-secondary"
-          onClick={changeToDark}
-          for="dark"
-        >
-          Dark
-        </label>
-
-        <input
-          type="radio"
-          class="btn-check text-secondary-emphasis"
-          name="options-outlined"
-          id="light"
-          autocomplete="off"
-          // checked
-        />
-        <label
-          class="btn btn-outline-light border-1 border-secondary"
-          onClick={changeToWhite}
-          for="light"
-        >
-          Light
-        </label>
-
-        <input
-          type="radio"
-          class="btn-check"
-          name="options-outlined"
-          id="blue"
-          autocomplete="off"
-        />
-        <label
-          class="btn btn-outline-primary"
-          onClick={changeToBlue}
-          for="blue"
-        >
-          Blue
-        </label>
-
-        <input
-          type="radio"
-          class="btn-check"
-          name="options-outlined"
-          id="green"
-          autocomplete="off"
-        />
-        <label
-          class="btn btn-outline-success"
-          onClick={changeToGreen}
-          for="green"
-        >
-          Green
-        </label>
-
-        <input
-          type="radio"
-          class="btn-check"
-          name="options-outlined"
-          id="red"
-          autocomplete="off"
-        />
-        <label class="btn btn-outline-danger" onClick={changeToRed} for="red">
-          Red
-        </label>
       </div>
     </div>
   );
