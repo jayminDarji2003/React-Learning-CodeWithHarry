@@ -40,10 +40,7 @@ export default function TextForm(props) {
   }
 
   const handleCopy = () => {
-    // let text = document.getElementById("myTextBox");
-    // text.select();
-    // text.setSelectionRange(0,9999);
-    // navigator.clipboard.writeText(text.value);
+    // navigator.clipboard.writeText(text);
     // props.showAlert("Copy to Clipboard", "Successful");
   };
  
@@ -73,11 +70,8 @@ export default function TextForm(props) {
   return (
     <>
       <div>
-        <h2 className={`mt-4 fw-bold text-${props.mode === 'dark' ? 'light' : 'dark'}`}>{props.heading}</h2>
+        <h2 className={`mt-3 fw-bold text-${props.mode === 'dark' ? 'light' : 'dark'}`}>{props.heading}</h2>
         <div className="mb-3 mt-3">
-          {/* <label htmlFor="myTextBox" className="form-label mb-3">
-          Enter your Text
-        </label> */}
           <textarea
             className="form-control"
             value={text}
@@ -88,8 +82,6 @@ export default function TextForm(props) {
           ></textarea>
         </div>
       </div>
-
-      {/* Operation buttons  */}
 
       <div className={`title my-4 text-${props.mode === 'dark' ? 'light' : 'dark'}`}>
         <h3 className="text-center fw-bold ">Perform Operations</h3>
@@ -164,11 +156,11 @@ export default function TextForm(props) {
       <hr />
 
       {/* section three  */}
-      <div className={`container my-4 text-${props.mode === 'dark' ? 'light' : 'dark'}`}>
+      <div className={`container text-${props.mode === 'dark' ? 'light' : 'dark'}`}>
         <div>
           <h3 className="text-center fw-bold">Your Text Summary</h3>
-          <p className="text-center">
-            {text.split(" ").filter((element)=>{return element.length !== 0}).length} words and {text.length} characters
+          <p className="text-center m-0">
+            {text.split(/\s+/).filter((element)=>{return element.length !== 0}).length} words and {text.length} characters
           </p>
           <p className="text-center">
             {0.008 * text.split(" ").filter((element)=>{return element.length !== 0}).length} Minutes to Read

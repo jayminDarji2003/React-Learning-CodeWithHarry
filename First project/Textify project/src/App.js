@@ -5,20 +5,14 @@ import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
 import Alert from "./components/Alert";
 
-// React router imports
 import {
   BrowserRouter,
-  // createRoutesFromElements,
   Route,
-  // RouterProvider,
   Routes,
 } from "react-router-dom";
 
 function App() {
-  // darm mode state
   const [mode, setMode] = useState("light");
-
-  // alert state
   const [alert, setAlert] = useState(null);
 
   const showAlert = (message, type) => {
